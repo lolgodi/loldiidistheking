@@ -1,180 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Google docs</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NASA Astrobiology Research Portal</title>
+
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #ece9e6, #ffffff);
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #333;
-    }
-    .container {
-        text-align: center;
-        padding: 40px;
-        background-color: rgba(255, 255, 255, 0.85);
-        border-radius: 15px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        max-width: 600px;
-        width: 90%;
-    }
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        color: #2c3e50;
-    }
-    p {
-        font-size: 1.2em;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-    button {
-        padding: 10px 20px;
-        font-size: 1.1em;
-        color: #fff;
-        background-color: #3498db;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    button:hover {
-        background-color: #2980b9;
-    }
+:root { --nasa-blue:#0b3d91; }
+
+body {
+  font-family:"Segoe UI",Tahoma,sans-serif;
+  margin:0;
+  background:#f4f6f8;
+  color:#1b2a41;
+}
+
+/* ===== MAIN PORTAL ===== */
+#studySite{
+  max-width:1000px;
+  margin:60px auto;
+  padding:45px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+
+#studySite h1{
+  font-size:2.7rem;
+  border-bottom:4px solid var(--nasa-blue);
+  padding-bottom:10px;
+}
+
+#studySite h2{
+  color:var(--nasa-blue);
+  margin-top:40px;
+}
+
+#studySite img{
+  width:100%;
+  border-radius:8px;
+  margin:18px 0;
+}
+
+#studySite a{
+  color:var(--nasa-blue);
+  text-decoration:none;
+  font-weight:500;
+}
+#studySite a:hover{ text-decoration:underline; }
+
+footer{
+  margin-top:50px;
+  padding-top:20px;
+  border-top:1px solid #ccc;
+  font-size:.9rem;
+  color:#555;
+}
+
+.secret_toggle{ cursor:pointer; }
+
+/* ===== PASSWORD MODAL ===== */
+#passwordModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(4px);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#passwordBox{
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+#passwordBox h3{ color:var(--nasa-blue); }
+
+#passwordBox input{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  font-size:1rem;
+}
+
+#passwordBox button{
+  width:100%;
+  padding:10px;
+  font-size:1rem;
+  background:var(--nasa-blue);
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== SECRET HUB ===== */
+#hubSite{
+  display:none;
+  min-height:100vh;
+  background:#0a0f1d;
+  color:#00ff66;
+  padding:45px;
+  font-family:monospace;
+}
+
+#hubSite button{
+  background:none;
+  border:1px solid #00ff66;
+  color:#00ff66;
+  padding:10px 14px;
+  margin:6px 0;
+  cursor:pointer;
+}
+
+/* ===== INSPECT BLOCK ===== */
+#inspectBlock{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:black;
+  color:red;
+  font-size:28px;
+  font-weight:bold;
+  align-items:center;
+  justify-content:center;
+  z-index:9999999;
+  text-align:center;
+}
 </style>
 </head>
+
 <body>
-<div class="container">
-    <h1>open</h1>
-    <p> Tuff client for survile </p>
-    <button onclick="openInAboutBlank()">Open Website</button>
+
+<div id="inspectBlock">🚫 Inspect Disabled</div>
+
+<!-- ===== STUDY PORTAL ===== -->
+<main id="studySite">
+
+<h1>NASA Astrobiology Research Portal</h1>
+
+<p>
+NASA’s Astrobiology Program is dedicated to understanding the origin, evolution,
+distribution, and future of life in the universe. This interdisciplinary science
+integrates biology, chemistry, planetary science, astronomy, and geology.
+</p>
+
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/pia19808-1041.jpg" alt="Mars Surface">
+
+<h2>Mission Overview</h2>
+<p>
+The Astrobiology Program investigates whether life exists beyond Earth,
+how habitable environments develop, and how biosignatures can be detected
+on planetary bodies such as Mars, Europa, Enceladus, Titan, and exoplanets
+orbiting distant stars.
+</p>
+
+<h2>Key Research Domains</h2>
+<ul>
+  <li>Microbial survival in extreme terrestrial analog environments</li>
+  <li>Mars regolith chemistry and preserved biosignatures</li>
+  <li>Subsurface oceans on icy moons</li>
+  <li>Exoplanet atmospheric composition analysis</li>
+  <li>Organic molecule formation in interstellar space</li>
+</ul>
+
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/europa_clipper_concept.jpg" alt="Europa Clipper">
+
+<h2>Active Missions & Programs</h2>
+<ul>
+  <li><a href="https://astrobiology.nasa.gov/" target="_blank">NASA Astrobiology Program</a></li>
+  <li><a href="https://mars.nasa.gov/" target="_blank">Mars Exploration Program</a></li>
+  <li><a href="https://science.nasa.gov/mission/europa-clipper/" target="_blank">Europa Clipper Mission</a></li>
+  <li><a href="https://science.nasa.gov/mission/james-webb-space-telescope/" target="_blank">James Webb Space Telescope</a></li>
+  <li><a href="https://exoplanets.nasa.gov/" target="_blank">NASA Exoplanet Exploration</a></li>
+</ul>
+
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/exoplanet_artist_concept.jpg" alt="Exoplanet Concept">
+
+<h2>Data & Resources</h2>
+<ul>
+  <li><a href="https://pds.nasa.gov/" target="_blank">NASA Planetary Data System (PDS)</a></li>
+  <li><a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank">NASA Exoplanet Archive</a></li>
+  <li><a href="https://astrobiology.nasa.gov/resources/" target="_blank">Astrobiology Research Resources</a></li>
+</ul>
+
+<footer>
+  <p>© 2025 National Aeronautics and Space Administration</p>
+  <p>Office of Space Science & Astrobiology</p>
+  <p>Last reviewed: September 2025<span class="secret_toggle" id="secretDot">.</span></p>
+</footer>
+
+</main>
+
+<!-- ===== PASSWORD MODAL ===== -->
+<div id="passwordModal">
+  <div id="passwordBox">
+    <h3>Restricted Access</h3>
+    <input type="password" id="passwordInput" placeholder="Access key">
+    <button id="submitPassword">Verify</button>
+  </div>
 </div>
 
-<script>
-function openInAboutBlank() {
-    // Open a blank page
-    const newWindow = window.open('about:blank', '_blank');
+<!-- ===== SECRET HUB ===== -->
+<section id="hubSite">
+  <h1>🎮 Secure Internal Hub</h1>
 
-    // Write a simple HTML with iframe into that blank page
-    newWindow.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <title>Dealt math</title>
-            <style>
-                html, body {
-                    margin: 0;
-                    height: 100%;
-                    padding: 0;
-                    overflow: hidden;
-                    font-family: Arial, sans-serif;
-                }
-                iframe {
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                }
-            </style>
-        </head>
-        <body>
-            <iframe src="https://dicestack88.github.io/Tuffclient/files/1_1UT14/WASM/"></iframe>
-        </body>
-        </html>
+  <h2>Games</h2>
+
+  <button onclick="openAboutBlank('https://lolgodi.github.io/sitegames/')">Games Hub</button>
+
+  <h2>Proxies</h2>
+  <button onclick="openAboutBlank('https://dicestack88.github.io/Tuffclient/files/1_1UT14/WASM/')">tuff cilnet good for survlie</button>
+  <button onclick="openAboutBlank('https://lolgodi.github.io/loldiid-best/wasm/')">for pvp 60fps+</button>
+
+  <p>Press <strong>Alt+ Tab</strong> to hide instantly.</p>
+</section>
+
+<script>
+// ===== PASSWORD =====
+const correctPassword="loldiid";
+const studySite=document.getElementById("studySite");
+const hubSite=document.getElementById("hubSite");
+const modal=document.getElementById("passwordModal");
+const passwordInput=document.getElementById("passwordInput");
+
+document.getElementById("secretDot").onclick=()=>{
+  modal.style.display="flex";
+  passwordInput.focus();
+};
+
+document.getElementById("submitPassword").onclick=()=>{
+  if(passwordInput.value===correctPassword){
+    modal.style.display="none";
+    studySite.style.display="none";
+    hubSite.style.display="block";
+  }else{
+    alert("Invalid access key");
+    passwordInput.value="";
+  }
+};
+
+document.addEventListener("keydown",e=>{
+  if(e.shiftKey && e.key.toLowerCase()==="h"){
+    hubSite.style.display="none";
+    studySite.style.display="block";
+  }
+});
+
+// ===== ABOUT:BLANK =====
+function openAboutBlank(url){
+  const w=window.open("about:blank","_blank");
+  if(!w) return alert("Popup blocked");
+  w.document.write(`<iframe src="${url}" style="border:none;width:100%;height:100%"></iframe>`);
+}
+
+// ===== INSPECT BLOCK =====
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+document.addEventListener("keydown",e=>{
+  if(
+    e.key==="F12" ||
+    (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key)) ||
+    (e.ctrlKey && e.key==="U")
+  ){
+    e.preventDefault();
+    lockInspect();
+  }
+});
+
+function detectDevTools(){
+  const start=performance.now();
+  debugger;
+  if(performance.now()-start>100) lockInspect();
+}
+
+function lockInspect(){
+  document.getElementById("inspectBlock").style.display="flex";
+}
+
+setInterval(detectDevTools,500);
 </script>
+
 </body>
 </html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Open in About Blank</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #ece9e6, #ffffff);
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #333;
-    }
-    .container {
-        text-align: center;
-        padding: 40px;
-        background-color: rgba(255, 255, 255, 0.85);
-        border-radius: 15px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        max-width: 600px;
-        width: 90%;
-    }
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        color: #2c3e50;
-    }
-    p {
-        font-size: 1.2em;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-    button {
-        padding: 10px 20px;
-        font-size: 1.1em;
-        color: #fff;
-        background-color: #3498db;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    button:hover {
-        background-color: #2980b9;
-    }
-</style>
-</head>
-<body>
-<div class="container">
-    <h1>open</h1>
-    <p>For pvp gives you good 60fps+ but not good for survile </p>
-    <button onclick="openInAboutBlank()">Open Website</button>
-</div>
-
-<script>
-function openInAboutBlank() {
-    // Open a blank page
-    const newWindow = window.open('about:blank', '_blank');
-
-    // Write a simple HTML with iframe into that blank page
-    newWindow.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <title>Dealt math</title>
-            <style>
-                html, body {
-                    margin: 0;
-                    height: 100%;
-                    padding: 0;
-                    overflow: hidden;
-                    font-family: Arial, sans-serif;
-                }
-                iframe {
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                }
-            </style>
-        </head>
-        <body>
-            <iframe src="https://lolgodi.github.io/loldiid-best/wasm/"></iframe>
-        </body>
-        </html>
