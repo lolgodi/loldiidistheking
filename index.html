@@ -1,8 +1,3 @@
-Certainly! I'll add a "Games" section with some sample buttons that open game links in full-screen iframes, similar to the previous setup.
-
-Here's the **full updated code** with a "Games" section added:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,15 +130,12 @@ footer {
 <script>
 // Function to open a URL in full-screen iframe overlay
 function openFullScreenIframe(url) {
-  // Create iframe element
   const iframe = document.createElement("iframe");
   iframe.src = url;
   iframe.className = "iframe-fullscreen";
 
-  // Append to body
   document.body.appendChild(iframe);
 
-  // Function to close iframe
   function removeIframe() {
     if (iframe.parentNode) {
       iframe.parentNode.removeChild(iframe);
@@ -151,32 +143,16 @@ function openFullScreenIframe(url) {
     document.removeEventListener("keydown", onKeyDown);
   }
 
-  // ESC key closes the iframe
   function onKeyDown(e) {
     if (e.key === "Escape") {
       removeIframe();
     }
   }
+
   document.addEventListener("keydown", onKeyDown);
 }
 </script>
 
+<!-- No inspect detection code included -->
 </body>
 </html>
-```
-
----
-
-### What I added:
-- **A "Games" section** with three buttons.
-- When you click a button, it opens that game URL in a **full-screen overlay iframe**.
-- Press **Escape** to close the iframe.
-
----
-
-### To customize:
-Replace the URLs in the `openFullScreenIframe()` calls with your actual game URLs if needed.
-
----
-
-Would you like me to help you embed specific game links or customize the layout further?
