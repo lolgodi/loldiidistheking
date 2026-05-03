@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NASA Astrobiology Research Portal</title>
 
 <style>
 :root { --nasa-blue:#0b3d91; }
 
-body {
-  font-family:"Segoe UI",Tahoma,sans-serif;
-  margin:0;
-  background:#f4f6f8;
-  color:#1b2a41;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* ===== MAIN PORTAL ===== */
 #studySite{
-  max-width:1000px;
-  margin:60px auto;
-  padding:45px;
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+  border-radius: 0;
+  box-shadow: none;
+  font-family:"Segoe UI",Tahoma,sans-serif;
+  background:#f4f6f8;
+  color:#1b2a41;
 }
 
 #studySite h1{
@@ -107,6 +113,8 @@ footer{
   color:#00ff66;
   padding:45px;
   font-family:monospace;
+  height: 100%; /* Ensure full height */
+  overflow: auto;
 }
 
 #hubSite button{
@@ -180,7 +188,7 @@ orbiting distant stars.
   <li><a href="https://exoplanets.nasa.gov/" target="_blank">NASA Exoplanet Exploration</a></li>
 </ul>
 
-<img src="https://www.nasa.gov/wp-content/uploads/2023/03/exoplanet_artist_concept.jpg" alt="Exoplanet Concept">
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/exoplanet_artist_concept.jpg" alt="Exoplanet Concept" />
 
 <h2>Data & Resources</h2>
 <ul>
@@ -201,7 +209,7 @@ orbiting distant stars.
 <div id="passwordModal">
   <div id="passwordBox">
     <h3>Restricted Access</h3>
-    <input type="password" id="passwordInput" placeholder="Access key">
+    <input type="password" id="passwordInput" placeholder="Access key" />
     <button id="submitPassword">Verify</button>
   </div>
 </div>
@@ -214,7 +222,7 @@ orbiting distant stars.
 
   <button onclick="openAboutBlank('https://lolgodi.github.io/sitegames/')">Games Hub</button>
 
-  <h2>Proxies</h2>
+  <h2>eagler</h2>
   <button onclick="openAboutBlank('https://dicestack88.github.io/Tuffclient/files/1_1UT14/WASM/')">tuff cilnet good for survlie</button>
   <button onclick="openAboutBlank('https://lolgodi.github.io/loldiid-best/wasm/')">for pvp 60fps+</button>
 
