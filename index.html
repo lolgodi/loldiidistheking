@@ -158,7 +158,7 @@ distribution, and future of life in the universe. This interdisciplinary science
 integrates biology, chemistry, planetary science, astronomy, and geology.
 </p>
 
-<img src="https://www.nasa.gov/wp-content/uploads/2023/03/pia19808-1041.jpg" alt="Mars Surface">
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/pia19808-1041.jpg" alt="Mars Surface" />
 
 <h2>Mission Overview</h2>
 <p>
@@ -177,7 +177,7 @@ orbiting distant stars.
   <li>Organic molecule formation in interstellar space</li>
 </ul>
 
-<img src="https://www.nasa.gov/wp-content/uploads/2023/03/europa_clipper_concept.jpg" alt="Europa Clipper">
+<img src="https://www.nasa.gov/wp-content/uploads/2023/03/europa_clipper_concept.jpg" alt="Europa Clipper" />
 
 <h2>Active Missions & Programs</h2>
 <ul>
@@ -264,7 +264,11 @@ document.addEventListener("keydown",e=>{
 function openAboutBlank(url){
   const w=window.open("about:blank","_blank");
   if(!w) return alert("Popup blocked");
-  w.document.write(`<iframe src="${url}" style="border:none;width:100%;height:100%"></iframe>`);
+  w.document.write(`
+    <html style="margin:0;padding:0;height:100%;width:100%;overflow:hidden;">
+      <iframe src="${url}" style="border:none;width:100%;height:100%;margin:0;padding:0;overflow:hidden;"></iframe>
+    </html>
+  `);
 }
 
 // ===== INSPECT BLOCK =====
